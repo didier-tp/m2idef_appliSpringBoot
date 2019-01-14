@@ -5,14 +5,11 @@ import java.util.List;
 import com.m2i.tp.entity.Compte;
 
 public interface DaoCompte {
-	public Compte findCompteByNumero(Long numero);
+	public Compte findByPrimaryKey(Long numero);
 
-	public List<Compte> findAllComptes();
+	public List<Compte> findAll();
 
-	// ...
-	public void updateCompte(Compte cpt);
+	public void save(Compte cpt);
 
-	public void createCompte(Compte cpt);
-
-	public void deleteCompte(Long numero);
+	public void delete(Long numero);
 }

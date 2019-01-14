@@ -10,6 +10,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 public class MySpringBootApplication extends SpringBootServletInitializer {
 	public static void main(String[] args) {
 		SpringApplication.run(MySpringBootApplication.class, args);
-		System.out.println("http://localhost:8080/myMvcSpringBootApp");
+		System.out.println("http://localhost:8080/appliSpringBoot");
+		System.out.println("default username=user et password précisé au démarrage");
 	}
 }

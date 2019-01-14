@@ -38,28 +38,25 @@ public class ServiceCompteImpl implements ServiceCompte {
 
 	@Override
 	public Compte rechercherCompteParNumero(Long numero) {
-		return daoCompte.findCompteByNumero(numero);
+		return daoCompte.findByPrimaryKey(numero);
 	}
 
 	@Override
 	public void saveOrUpdateCompte(Compte cpt) {
-		if(cpt.getNumero()==null) {
-			daoCompte.createCompte(cpt);
-		}else 
-			daoCompte.updateCompte(cpt);
+			daoCompte.save(cpt);
 	}
 
 	@Override
 	//avec ou sans @Transactional ici ou au dessus de la classe entière ServiceCompteImpl
 	//à tester avec un numéro de compte à créditer qui existe ou n'existe pas
 	public void transferer(Double montant, Long numCptDeb, Long numCptCred) {
-		Compte cptDeb = daoCompte.findCompteByNumero(numCptDeb);
+		Compte cptDeb = daoCompte.findByPrimaryKey(numCptDeb);
 		cptDeb.setSolde(cptDeb.getSolde() - montant);
-		//daoCompte.updateCompte(cptDeb); //uniquement nécessaire en mode non @Transactional 
+		//daoCompte.save(cptDeb); //uniquement nécessaire en mode non @Transactional 
 		                                //non persistant
-		Compte cptCred = daoCompte.findCompteByNumero(numCptCred);
+		Compte cptCred = daoCompte.findByPrimaryKey(numCptCred);
 		cptCred.setSolde(cptCred.getSolde() + montant);
-		//daoCompte.updateCompte(cptCred);
+		//daoCompte.save(cptCred);
 		
 		//En mode @Transactional , le entityManager et la transaction 
 		//ne sont finalisés (commit/rollback) et close qu'en fin de méthode
