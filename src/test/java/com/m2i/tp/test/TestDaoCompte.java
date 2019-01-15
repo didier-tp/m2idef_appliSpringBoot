@@ -29,6 +29,17 @@ public class TestDaoCompte {
 		daoCompte.save(new Compte(null,"compte x",90.0));
 		List<Compte> listeComptes = daoCompte.findByLabel("compte x");
 		Assert.assertTrue(listeComptes.size()==2);
-		System.out.println("compte dont le label vaut compte x :" + listeComptes);
+		System.out.println("comptes dont le label vaut compte x :" + listeComptes);
+	}
+	
+	@Test
+	public void testFindComptesAvecSoldePositif() {
+		daoCompte.save(new Compte(null,"compte xx",-50.0));
+		daoCompte.save(new Compte(null,"compte yy",60.0));
+		daoCompte.save(new Compte(null,"compte zz",-90.0));
+		daoCompte.save(new Compte(null,"compte xyz",70.0));
+		List<Compte> listeComptes = daoCompte.findComptesAvecSoldePositif();
+		Assert.assertTrue(listeComptes.size()>=2);
+		System.out.println("comptes avec solde positif :" + listeComptes);
 	}
 }
