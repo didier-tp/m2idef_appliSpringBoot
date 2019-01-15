@@ -1,5 +1,7 @@
 package com.m2i.tp.dao;
 
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
 
 import com.m2i.tp.entity.Compte;
@@ -11,6 +13,14 @@ import com.m2i.tp.entity.Compte;
 public interface DaoCompte extends CrudRepository<Compte, Long> {
 	//avec findById() , findAll() , save() , deleteById() , ...
 	//comme méthode prédéfinie héritées
+	
+	public List<Compte> findByLabel(String label); //via des conventions de nom de méthode
+	                                               //le code de la requete va etre generé automatiquement
+	
+	//exemple de nom de méthode nom associée au conventions pour la génération automatique
+	//la requête devra être codée dans @NamedQuery de nom ="Compte.findComptesAvecSoldePositif"
+	public List<Compte> findComptesAvecSoldePositif();
+	
 }
 /*
 public interface DaoCompte {

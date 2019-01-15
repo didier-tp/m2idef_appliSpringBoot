@@ -5,8 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 @Entity
+
+//Compte.findComptesAvecSoldePositif permet de faire le rapprochement
+//avec la méthode findComptesAvecSoldePositif du DaoCompte basé sur Spring-Data-jpa
+@NamedQuery(name="Compte.findComptesAvecSoldePositif", 
+             query="SELECT c FROM Compte c WHERE c.solde >= 0")
 public class Compte {
 
 	@Id
