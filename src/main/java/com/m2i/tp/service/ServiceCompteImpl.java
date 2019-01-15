@@ -1,5 +1,7 @@
 package com.m2i.tp.service;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,6 +67,11 @@ public class ServiceCompteImpl implements ServiceCompte {
 		//A la fin de l'exécution de la méthode améliorée par spring ,
 		//le commit() déclenche entityManager.flush() qui déclenche automatiquement
 		// .merge() sur toutes les entités persistantes modifiées en mémoire
+	}
+
+	@Override
+	public List<Compte> rechercherTousLesComptes() {
+		return (List<Compte>) daoCompte.findAll();
 	}
 
 }

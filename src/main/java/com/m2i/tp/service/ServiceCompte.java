@@ -1,5 +1,7 @@
 package com.m2i.tp.service;
 
+import java.util.List;
+
 import com.m2i.tp.entity.Compte;
 
 /**
@@ -18,4 +20,5 @@ public interface ServiceCompte {
 		public void saveOrUpdateCompte(Compte cpt);
 		//public boolean verifierDecouvertAutorisé();
 		public void transferer(Double montant,Long numCptDeb,Long numCptCred);
+		public List<Compte> rechercherTousLesComptes();
 }
