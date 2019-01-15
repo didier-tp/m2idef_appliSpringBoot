@@ -21,4 +21,5 @@ public interface ServiceCompte {
 		//public boolean verifierDecouvertAutorisé();
 		public void transferer(Double montant,Long numCptDeb,Long numCptCred);
 		public List<Compte> rechercherTousLesComptes();
+		public List<Compte> rechercherTousLesComptesPositifs();
 }

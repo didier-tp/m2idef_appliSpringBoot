@@ -74,4 +74,9 @@ public class ServiceCompteImpl implements ServiceCompte {
 		return (List<Compte>) daoCompte.findAll();
 	}
 
+	@Override
+	public List<Compte> rechercherTousLesComptesPositifs() {
+		return daoCompte.findComptesAvecSoldePositif();
+	}
+
 }
