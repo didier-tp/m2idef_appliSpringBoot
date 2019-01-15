@@ -38,7 +38,7 @@ public class ServiceCompteImpl implements ServiceCompte {
 
 	@Override
 	public Compte rechercherCompteParNumero(Long numero) {
-		return daoCompte.findByPrimaryKey(numero);
+		return daoCompte.findById(numero).get();
 	}
 
 	@Override
@@ -50,11 +50,11 @@ public class ServiceCompteImpl implements ServiceCompte {
 	//avec ou sans @Transactional ici ou au dessus de la classe entière ServiceCompteImpl
 	//à tester avec un numéro de compte à créditer qui existe ou n'existe pas
 	public void transferer(Double montant, Long numCptDeb, Long numCptCred) {
-		Compte cptDeb = daoCompte.findByPrimaryKey(numCptDeb);
+		Compte cptDeb = daoCompte.findById(numCptDeb).get();
 		cptDeb.setSolde(cptDeb.getSolde() - montant);
 		//daoCompte.save(cptDeb); //uniquement nécessaire en mode non @Transactional 
 		                                //non persistant
-		Compte cptCred = daoCompte.findByPrimaryKey(numCptCred);
+		Compte cptCred = daoCompte.findById(numCptCred).get();
 		cptCred.setSolde(cptCred.getSolde() + montant);
 		//daoCompte.save(cptCred);
 		

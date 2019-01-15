@@ -1,6 +1,7 @@
 package com.m2i.tp.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -21,8 +22,12 @@ public class DaoCompteJpa implements DaoCompte {
 	private EntityManager entityManager;
 
 	@Override
-	public Compte findByPrimaryKey(Long numero) {
-		return entityManager.find(Compte.class, numero);
+	public Optional<Compte> findById(Long numero) {
+		Compte cpt  = entityManager.find(Compte.class, numero);
+		if(cpt!=null)
+			return Optional.of(cpt);
+		else
+			return Optional.empty();
 	}
 
 	@Override
@@ -40,7 +45,7 @@ public class DaoCompteJpa implements DaoCompte {
 	}
 
 	@Override
-	public void delete(Long numero) {
+	public void deleteById(Long numero) {
 		Compte cpt = entityManager.find(Compte.class, numero);
         entityManager.remove(cpt);
 	}
