@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +25,12 @@ public class CompteRestCtrl {
 		//code idéalement délégué à sous composant utilitaire tenant compte d'un profile spring:
 		serviceCompte.saveOrUpdateCompte(new Compte(null,"compte 1bis",100.0));
 		serviceCompte.saveOrUpdateCompte(new Compte(null,"compte 2bis",200.0));
+	}
+	
+	//URL = http://localhost:8080/appliSpringBoot/rest/compte/1
+	@RequestMapping(value="/{numCpt}" , method=RequestMethod.GET)
+	public Compte getCompteByNum(@PathVariable("numCpt") Long numCpt) {
+		return serviceCompte.rechercherCompteParNumero(numCpt);
 	}
 	
 	//URL = http://localhost:8080/appliSpringBoot/rest/compte
