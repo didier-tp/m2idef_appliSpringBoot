@@ -17,11 +17,18 @@ public class Statistique {
 	}
 	
 	public double sum() {
-		return 0.0;
+		double s = 0.0;
+		for(Double val:serie) {
+			s+=val;
+		}
+		return s;
+		//return 0.0;
 	}
 	
     public double average() {
-		return 0.0;
+    	int n = nbValues();
+    	return (n==0)?0:sum()/n;
+		//return 0.0;
 	}
 	
 	
