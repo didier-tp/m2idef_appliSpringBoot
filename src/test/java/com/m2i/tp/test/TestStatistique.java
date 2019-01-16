@@ -18,20 +18,20 @@ public class TestStatistique {
 	private Statistique statistique; //composant à tester
 	
 	public TestStatistique() {
-		logger.debug("instance de TestStatistique construite:" + this);
+		logger.trace("instance de TestStatistique construite:" + this);
 	}
 	
 	@Before
 	public void initStatistique() {
 		statistique = new Statistique();
-		logger.debug("instance de Statistique inialisée:" + statistique);
+		logger.trace("instance de Statistique inialisée:" + statistique);
 	}
 	
 	@Test
 	public void testSomme() {
 		statistique.addValue(1);statistique.addValue(2);statistique.addValue(3);
 		double sommeCalculee = statistique.sum();
-		logger.debug("tva calculee:" + sommeCalculee + " via instance " + statistique);
+		logger.trace("somme calculee:" + sommeCalculee + " via instance " + statistique);
 		Assert.assertEquals(6.0,sommeCalculee,0.000001);
 	}
 	
@@ -39,7 +39,7 @@ public class TestStatistique {
     public void testMoyenne() {
 		statistique.addValue(1);statistique.addValue(3);
     	double moyenneCalculee = statistique.average();
-    	logger.debug("moyenneCalculee calculee:" + moyenneCalculee + " via instance " + statistique);
+    	logger.trace("moyenneCalculee calculee:" + moyenneCalculee + " via instance " + statistique);
 		Assert.assertEquals(2.0,moyenneCalculee,0.000001);
 	}
 
