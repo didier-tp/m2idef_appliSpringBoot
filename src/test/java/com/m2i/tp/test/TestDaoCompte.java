@@ -28,7 +28,7 @@ public class TestDaoCompte {
 		daoCompte.save(new Compte(null,"compte y",60.0));
 		daoCompte.save(new Compte(null,"compte x",90.0));
 		List<Compte> listeComptes = daoCompte.findByLabel("compte x");
-		Assert.assertTrue(listeComptes.size()==2);
+		Assert.assertTrue(listeComptes.size()>=2);
 		System.out.println("comptes dont le label vaut compte x :" + listeComptes);
 	}
 	
