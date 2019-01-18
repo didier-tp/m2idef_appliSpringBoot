@@ -3,6 +3,7 @@ package com.m2i.tp.service;
 import java.util.List;
 
 import com.m2i.tp.entity.Compte;
+import com.m2i.tp.entity.Operation;
 
 /**
  * 
@@ -16,6 +17,8 @@ import com.m2i.tp.entity.Compte;
 
 public interface ServiceCompte {
 		public Compte rechercherCompteParNumero(Long numero);
+		public List<Operation> operationsDuCompte(Long numCpt);
+		public void addOperation(Long numCompte,Operation op);
 		//...
 		public void saveOrUpdateCompte(Compte cpt);
 		//public boolean verifierDecouvertAutorisé();

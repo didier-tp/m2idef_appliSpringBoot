@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 import com.m2i.tp.entity.Compte;
+import com.m2i.tp.entity.Operation;
 
 //NB: avec Spring-Data , plus besoin de programmer l'implémentation jpa
 //cette classe est générée automatiquement si 
@@ -20,6 +21,8 @@ public interface DaoCompte extends CrudRepository<Compte, Long> {
 	//exemple de nom de méthode nom associée au conventions pour la génération automatique
 	//la requête devra être codée dans @NamedQuery de nom ="Compte.findComptesAvecSoldePositif"
 	public List<Compte> findComptesAvecSoldePositif();
+	
+	public List<Operation> findOperationsOfCompte(Long numCpt);
 	
 }
 /*

@@ -1,0 +1,95 @@
+Questions techniques fréquentes
+===============================
+
+1.  Quel est le mot clef java pour l'héritage ?
+2.  Est ce qu'une valeur de type "double" peut être "null" ?
+3.  Quelle est la valeur par défaut pour une variable de type Long ?
+4.  new List<String>() est-il possible ?
+5.  A quoi sert @GeneratedValue(strategy=IDENTITY) ?
+6.  quelle est l'interface principale de JPA (pour déclencher ordres CRUD) ? 
+7.  A quoi sert @Transactional ?
+8.  Citer une annotation de Spring servant à demander une injection de dépendance ?
+9.  Citer au moins une annotation de Spring à placer au dessus d'une classe pour que 
+    celle-ci soit vu comme un composant spring ?
+10. A quoi sert @Before de JUnit4 ?
+11. A quoi correspond un objet de type "ResultSet" de l'api JDBC ?
+12. Quel est le rôle d'un objet de type "DataSource" ?
+13. Dans quel framework utilise ton @ManagedBean et h:inputText ?
+14. Le fichier WEB-INF/web.xml est (en version récente) obligatoire ou facultatif ?
+15. Quelle est la balise de JSF qui permet d'obtenir un tableau HTML à partir d'une collection java ?
+16. A quoi sert un "listener" web ?
+17. Dans un @RestController , une fonction de recherche doit être déclenchée dans quel mode HTTP ?
+18. A quoi sert @RequestMapping() de Spring-mvc ?
+19. Doit-on absolument déployer une application "spring-boot" dans un serveur d'application JEE ?
+20. Quel est le fichier de configuration maven d'une application java ?
+21. pour mettre à jour un référentiel distant partagé par plusieurs développeurs quelle est l'ordre GIT à déclencher ?
+22. Quelle ligne de commande maven pour générer un ".jar" ?
+23. A quoi sert le menu contextuel "maven/update project" de l'IDE eclipse ?
+24. A quoi correspond @Id de JPA/Hibernate ?
+25. Quelle instruction JPA pour déclencher un ajout d'une nouvelle entité persistante en base ?
+26. A quoi correspond Compte dans l'instruction "SELECT c FROM Compte c WHERE c.solde >= 0" de JPQL ? 
+27. Quelle annotation pour déclencher une méthode d'initialisation après les injections de dépendances ?
+28. Quelle est le nom de la balise JSF pour un bouton poussoir déclenchant une action (commande) ?
+29. A quoi sert le mot clef "fetch" dans une requête JPQL ?
+30. A qoui sert @ComponentScan (ou <component-scan >) d'une configuration Spring ?
+
+31. Qui est ce qui est jaune et qui attend ?
+32. Que signifie JSP ?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bonnes réponses aux questions techniques fréquentes
+====================================================
+
+1.  extends
+2.  non
+3.  null
+4.  non
+5.  a remonter en mémoire dans l'entité persistante java la valeur auto incrémentée (par mysql ou autre) d'une clef primaire
+6.  EntityManager
+7.  a déclencher automatiquement commit() si tout va bien ou .rollback() en cas d'exception "Runtime"
+8.  Citer une annotation de Spring servant à demander une injection de dépendance ?
+9.  @Component (ou @Service ou @Repository ou @RestController ou ....)
+10. à initialiser une chose à tester avant le déclenchement d'une méthode préfixée par @Test
+11. objet java comportant le résultat d'un SELECT (à généralement parcourir via une boucle)
+12. établir une connexion avec une base de données relationnelle
+13. JSF
+14. facultatif
+15. h:dataTable
+16. a déclencher des traitements suite à des événements (ex: démarrage de l'appli dans tomcat).
+17. GET
+18. à préciser une partie de l'URL menant à une méthode de traitement (+ précision GET ou POST ou ...) 
+    (+ type mime application/json ou autre)
+19. non
+20. pom.xml
+21. git push
+22. "mvn package" (ou bien "mvn install" ou bien ...)
+23. à reconfigurer la vision "eclipse" d'un projet "maven" après avoir modifier le fichier pom.xml (ex: java 8)
+24. à préciser quelle est l'attibut java qui correspond à la clef primaire (identifiant) d'une entité persistante .
+25. entityManager.persist(...);
+26. au nom d'une classe java (préfixée par @Entity) et pas systématiquement au meme nom qu'une des tables
+27. @PostConstruct
+28. <h:commandButton >
+29. à remonter en mémoire tous les éléments d'une sous-collection (demande de comportement ponctuel proche de "EAGER")
+30. à préciser la liste des packages (et sous packages) de l'appli qui seront scrutés pour trouver des classes de composants spring
+    (@Component , @Service , ...)
+
+31. Jonathan
+32. Je Sais Pas (ou Java Server Page) 
