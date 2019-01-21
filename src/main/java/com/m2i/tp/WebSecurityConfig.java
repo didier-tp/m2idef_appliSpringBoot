@@ -45,6 +45,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     	.antMatchers("/mvc/**").permitAll()
 		//.anyRequest().authenticated()
 		.and().formLogin().permitAll()
+		.and().cors() //enable CORS (avec @CrossOrigin sur class @RestController)
 		.and().csrf().disable();
 		
 		//.and().httpBasic() 

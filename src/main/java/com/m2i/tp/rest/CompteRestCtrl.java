@@ -3,6 +3,7 @@ package com.m2i.tp.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,8 @@ import com.m2i.tp.service.ServiceCompte;
 
 @RestController //classe de WS REST avec spring MVC (cas particulier de @Component)
 @RequestMapping(value="/rest/compte" , headers="Accept=application/json")
+@CrossOrigin(origins = "*")//en mode dev //pour autoriser des appels ajax provenant
+                          //d'autres origines (exemple entreprise amie , ...)
 public class CompteRestCtrl {
 	
 	@Autowired
