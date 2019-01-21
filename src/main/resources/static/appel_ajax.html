@@ -4,7 +4,11 @@
   <script>
         function callbackReponsePrete(responseData){
 		   console.log(responseData);
-		   //...
+		   var compteJs = JSON.parse(responseData); //js from JSON 
+		   //JSON.parse(jsonString) est l'inverse de JSON.stringify(jsObject)
+		   (document.querySelector("#label")).innerHTML = compteJs.label;
+		   (document.querySelector("#solde")).innerHTML = compteJs.solde;
+		   
 		}
 		function getCompteViaAjax(){
 		    var numCpt = (document.querySelector("#numCpt")).value;
@@ -17,7 +21,7 @@
 	numCpt : <input id="numCpt" value="1" /> <br/>
 	<input type="button" value="get compte via ajax" 
 	       onclick="getCompteViaAjax()" /> <br/>
-	label: <span id="label" /> <br/>
-	solde: <span id="solde" /> <br/>
+	label: <span id="label" ></span> <br/>
+	solde: <span id="solde" ></span> <br/>
 </body>
 </html>
