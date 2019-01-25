@@ -45,6 +45,12 @@ public class CompteRestCtrl {
 		return serviceCompte.rechercherCompteParNumero(numCpt);
 	}
 	
+	//URL = http://localhost:8080/appliSpringBoot/rest/compte/1
+	@RequestMapping(value="/{numCpt}" , method=RequestMethod.DELETE)
+	public void deleteCompteByNum(@PathVariable("numCpt") Long numCpt) {
+			serviceCompte.supprimerCompte(numCpt);
+	}
+	
 	//URL = http://localhost:8080/appliSpringBoot/rest/compte
 	// ou   http://localhost:8080/appliSpringBoot/rest/compte?soldePositif=true
 	@RequestMapping(value="" , method=RequestMethod.GET)

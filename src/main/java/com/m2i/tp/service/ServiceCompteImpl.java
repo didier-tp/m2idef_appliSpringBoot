@@ -98,4 +98,10 @@ public class ServiceCompteImpl implements ServiceCompte {
 		return daoCompte.findComptesAvecSoldePositif();
 	}
 
+	@Override
+	public void supprimerCompte(Long numCpt) {
+		daoCompte.deleteById(numCpt);
+		
+	}
+
 }

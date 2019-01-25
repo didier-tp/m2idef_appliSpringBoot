@@ -25,4 +25,5 @@ public interface ServiceCompte {
 		public void transferer(Double montant,Long numCptDeb,Long numCptCred);
 		public List<Compte> rechercherTousLesComptes();
 		public List<Compte> rechercherTousLesComptesPositifs();
+		public void supprimerCompte(Long numCpt);
 }
