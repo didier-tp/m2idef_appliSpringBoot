@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.m2i.tp.entity.Compte;
+import com.m2i.tp.entity.Operation;
 
 @Repository //@Repository = composant spring de type DAO
 @Transactional //en version Spring (pour commit/rollback automatique)
@@ -48,6 +49,26 @@ public class DaoCompteJpa implements DaoCompte {
 	public void deleteById(Long numero) {
 		Compte cpt = entityManager.find(Compte.class, numero);
         entityManager.remove(cpt);
+	}
+
+	@Override
+	public List<Compte> findByLabel(String label) {
+		return entityManager.createQuery("SELECT c FROM Compte c WHERE c.label = :label",Compte.class)
+                .setParameter("label", label)
+				.getResultList();
+	}
+
+	@Override
+	public List<Compte> findComptesAvecSoldePositif() {
+		return entityManager.createQuery("SELECT c FROM Compte c WHERE c.solde > 0",Compte.class)
+                .getResultList();
+	}
+
+	@Override
+	public List<Operation> findOperationsOfCompte(Long numCpt) {
+		return entityManager.createQuery("SELECT o FROM Compte c INNER JOIN c.operations o WHERE c.numero = :numCpt",Operation.class)
+				.setParameter("numCpt", numCpt)
+				.getResultList();
 	}
 
 }
